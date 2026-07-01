@@ -7,7 +7,7 @@ createTable(gridSize);
 
 sqrNumButton.addEventListener("click", () => {
     gridSize = Number(prompt("Unesite novu velicinu grida: "));
-    if (gridSize < 1 || gridSize > 100){
+    if (gridSize < 1 || gridSize > 100 || isNaN(gridSize)){
         alert("Nope!");
         return;
     }

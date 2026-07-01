@@ -17,6 +17,8 @@ sqrNumButton.addEventListener("click", () => {
 
 
 
+
+
 function createTable(gridSize) {
     for (let i = 0; i < gridSize; i++) {
     const newColumnDiv = document.createElement("div");
@@ -28,7 +30,14 @@ function createTable(gridSize) {
         newColumnDiv.appendChild(newRowDiv);
 
         newRowDiv.addEventListener("mouseenter", () => {
-            newRowDiv.style.backgroundColor = "red";
+            if (newRowDiv.style.backgroundColor == "") {
+                newRowDiv.style.backgroundColor = randomHex();
+                newRowDiv.style.opacity = 0.1;
+            }
+            else{
+                newRowDiv.style.opacity = parseFloat(newRowDiv.style.opacity) + 0.1;
+            }
+            
         })
 
        
@@ -36,5 +45,6 @@ function createTable(gridSize) {
 }
 }
 
+const randomHex = () => '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
 
-
+console.log(randomHex()); // Example output: "#7b4cff"
